@@ -29,7 +29,10 @@ var ROOT_PATH = '/';
 var API_PATH = ROOT_PATH + 'api/whoami';
 
 function whoami(req,res) {
-  return res.json("me");
+  var op = {ipaddress: req.ip, 
+            language: req.get('Accept-Language'),
+            'software' : req.get('User-Agent')};
+  return res.json(op);
 }
 
 app.get(API_PATH,whoami);
