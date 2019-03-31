@@ -24,6 +24,17 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
+//paths
+var ROOT_PATH = '/';
+var API_PATH = ROOT_PATH + 'api/whoami';
+
+function whoami(req,res) {
+  return res.json("me");
+}
+
+app.get(API_PATH,whoami);
+
+
 
 
 // listen for requests :)
